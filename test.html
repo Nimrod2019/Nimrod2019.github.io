@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>World of Warships API Project</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(255, 26, 104, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartBox {
+        width: 700px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(255, 26, 104, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+      <p>World of Warships API Chart</p>
+    </div>
+	
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+	
+	<div class="chartCard">
+      <div class="chartBox">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+	
+	<div class="chartCard">
+      <div class="chartBox">
+        <canvas id="pieChart"></canvas>
+      </div>
+    </div>
+	
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script type="text/javascript" src="apps.js"></script>
+    <script>
+    // setup 
+	let PlayerFullName=[];
+	let BattlesPlayedPVP=[];
+	let BattlesSurvived=[];
+	let Dates=[];
+	let WinsPVP=[];
+	let LossesPVP=[];
+	let delayed;
+	
+	async function displayChart(){
+		await PVPBattles();
+		
+		const data = {
+			labels: PlayerFullName,
+			datasets: [{
+				label: 'PVP Battles Played by Player',
+				data: BattlesPlayedPVP,
+				backgroundColor: ["red", "blue", "green", "purple"],
+				borderColor:'rgba(255, 26, 104, 1)',
+				borderWidth: 1
+			}]
+		};
+
+    // config 
+		const config = {
+			type: 'bar',
+			data,
+			options: {
+			animation:{
+				onComplete: ()=> {
+					delayed=true
+				},
+				delay: (context) =>{
+				let delay=0;
+					if(context.type==='data' && context.mode==='default'){
+						delay=context.dataIndex*1000;
+					}
+					return delay;
+				}
+			},
+			scales: {
+			y: {
+				beginAtZero: true
+			}
+		}	
+	}
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+		
+	}
+	
+	async function displayChart2(){
+		await SurvivedBattles();
+		const data = {
+			labels: Dates,
+			datasets: [{
+				label: 'PVP Battles Survived by Player',
+				data: BattlesSurvived,
+				backgroundColor: 'rgba(255, 26, 104, 0.2)',
+				borderColor:'rgba(255, 26, 104, 1)',
+				borderWidth: 1
+			}]
+		};
+		// config 
+		const config = {
+			type: 'line',
+			data,
+			options: {
+			scales: {
+			y: {
+				ticks: {
+                suggestedMin: 2900
+				}
+			}
+		},
+		animations: {
+			tension:{
+			duration: 3000,
+			easing: 'linear',
+			from: 1,
+			to: 0,
+			loop: true
+			}
+		}
+	}
+    };
+	const myChart = new Chart(
+      document.getElementById('lineChart'),
+      config
+    );
+	}
+	
+	async function displayChart3(){
+		await WinLossRatio();
+		const data = {
+			labels: ['Wins', 'Losses'],
+			datasets: [{
+				label: 'Win/Loss Ratio',
+				data: [WinsPVP, LossesPVP],
+				backgroundColor: ["#a9e13e", "#520f0c"],
+				borderColor:'rgba(255, 26, 104, 1)',
+				borderWidth: 1
+			}]
+		};
+		// config 
+		const config = {
+			type: 'pie',
+			data
+    };
+	const myChart = new Chart(
+      document.getElementById('pieChart'),
+      config
+    );
+	}
+	
+	displayChart();
+	displayChart2();
+	displayChart3();
+    </script>
+
+  </body>
+</html>
