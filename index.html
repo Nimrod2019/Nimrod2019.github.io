@@ -37,29 +37,15 @@
 			background:url('https://media1.tenor.com/images/4479376b035083d16895266055cd6bd3/tenor.gif?itemid=15241310');
 			background-repeat: no-repeat;
 			opacity: 1;
-        }
-	    
-	    .game_title{
-    color:green;
-    display: flex;
-    margin: 0;
-    font-size: xx-large;
-    padding: 10px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+	    }
     </style>
 </head>
   
 <body>
     <div class="yamato">
+	    	<h1>World of Warships</h1>
 		<h3>Hover to see a special animation!</h3>
 	    	<button onClick="location.href='test.html'" type="button">Click Here to go to charts!</button>
-	</div>
-    <div class="game_title">
-	<h1>World of Warships</h1>
 	</div>
 	<script type = "text/javascript" 
           src = "https://d3js.org/d3.v4.min.js">
@@ -67,7 +53,7 @@
   <script>
      d3.selectAll("h1").transition()
         .style(
-"transform", "rotate(180deg)").delay(1000).duration(10000)
+"transform", "rotate(180deg)").delay(1000).duration(1000)
         .style("color", "black").duration(1000)
   </script>
 </body>
