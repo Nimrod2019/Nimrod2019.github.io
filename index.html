@@ -38,6 +38,10 @@
 			background-repeat: no-repeat;
 			opacity: 1;
 	    }
+	    
+	h1 {
+  		color: blue;
+	}
     </style>
 </head>
   
@@ -53,7 +57,7 @@
   <script>
      d3.selectAll("h1").transition()
         .style(
-"transform", "rotate(180deg)").delay(1000).duration(1000)
+"transform", "rotate(180deg)").delay(1000).duration(10000)
         .style("color", "black").duration(1000)
   </script>
 </body>
