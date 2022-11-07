@@ -66,11 +66,12 @@
           src = "https://d3js.org/d3.v4.min.js">
   </script>
   <script>
-     d3.selectAll("h1").transition()
-        .style(
-"transform", "rotate(180deg)").delay(5000).duration(1000)
-        .style("color", "red").duration(1000).style(
-"transform", "rotate(180deg)").delay(1000).duration(1000)
+	var rotation;
+	rotation=setInterval(rotate,3000);
+	function rotate(){
+     	d3.selectAll("h1").transition().style("transform", "rotate(180deg)").delay(2000).duration(1000).style("color", "red").duration(1000)
+	}
+	  
   </script>
 </body>
 </html>
