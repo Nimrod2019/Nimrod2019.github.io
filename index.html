@@ -28,7 +28,7 @@
 	    opacity: 0.1;
             border-radius: 50%;
             transition: 5s;
-	    position: absolute;
+	    position: relative;
 	    top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -50,13 +50,15 @@
                  align-items: center;
 	    }
 	    
-	  
+	 button{
+		 position:absolute;
+		 bottom:0;
+	    }
     </style>
 </head>
   <body>
     <div class="yamato">
 	    	<h1>World of Warships</h1>
-		<h3>Hover to see a special animation!</h3>
 	    	<button onClick="location.href='test.html'" type="button">Click Here to go to charts!</button>
 	</div>
 </body>
