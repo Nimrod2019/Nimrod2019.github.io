@@ -62,5 +62,14 @@
 	    	<h1>World of Warships</h1>
 	    	<button onClick="location.href='test.html'" type="button">Click Here to go to charts!</button>
 	</div>
+	<script type = "text/javascript" 
+          src = "https://d3js.org/d3.v4.min.js">
+  </script>
+  <script>
+     d3.selectAll("h1").transition()
+        .style(
+"transform", "rotate(180deg)").delay(1000).duration(1000)
+        .style("color", "red").duration(1000)
+  </script>
 </body>
 </html>
