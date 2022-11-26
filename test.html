@@ -197,46 +197,23 @@
 		await statsGoodNotBest();
 		console.log(StatsGoozombies)
 		console.log(StatsGoodNotBest)
-		const data = {
-			labels: ['Main Battery Kills', 'Secondary Battery Kills', 'Ramming Kills', 'Torpedo Kills'],
+		const CHART=document.getElementByID('radarChart');
+		console.log(CHART.defaults.scale.ticks);
+		CHART.defaults.scale.ticks.beginAtZero=true; 
+		
+		let radarChart= new Chart(CHART, {
+		 type: 'radar',
+	         data: {
+			labels: ['Main Battery Max Kills','Secondary Max Kills', 'Ramming Max Kills', 'Torpedo Max Kills'],
 			datasets: [{
-				label: 'Goozombies max kills by type in one battle',
-				data: [StatsGoozombies],
-				fill: true,
-    				backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    				borderColor: 'rgb(255, 99, 132)',
-    				pointBackgroundColor: 'rgb(255, 99, 132)',
-    				pointBorderColor: '#fff',
-    				pointHoverBackgroundColor: '#fff',
-    				pointHoverBorderColor: 'rgb(255, 99, 132)'
-			},{
-				label: 'Goodbutnotthebest max kills by type in one battle',
-				data: [StatsGoodNotBest],
-				fill: true,
-    				backgroundColor: 'rgba(54, 162, 235, 0.2)',
-    				borderColor: 'rgb(54, 162, 235)',
-    				pointBackgroundColor: 'rgb(54, 162, 235)',
-    				pointBorderColor: '#fff',
-    				pointHoverBackgroundColor: '#fff',
-   	 			pointHoverBorderColor: 'rgb(54, 162, 235)'
+				label: 'Goozombies Max kills per battle',
+				backgroundColor: '00FF00',
+				borderColor: '00FF00',
+				borderWidth:2,
+				data: StatsGoozombies
 			}]
-		};
-		// config 
-		const config = {
-  type: 'radar',
-  data,
-  options: {
-    elements: {
-      line: {
-        borderWidth: 3
-      }
-    }
-  }
-};
-	const myChart = new Chart(
-      document.getElementById('radarChart'),
-      config
-    );
+		 }
+		}
 	}
 	
 	displayChart();
