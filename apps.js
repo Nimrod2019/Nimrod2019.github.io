@@ -35,10 +35,10 @@ async function statsGoozombies(){
 	const response=await fetch(api_link)
 	const datapoints=await response.json();
 	for(let account in datapoints.data){
-		StatsGoozombies.push(datapoints.data["account"]["statistics"]["pvp"]["main_battery"]["max_frags_battle"])
-		StatsGoozombies.push(datapoints.data["account"]["statistics"]["pvp"]["second_battery"]["max_frags_battle"])
-		StatsGoozombies.push(datapoints.data["account"]["statistics"]["pvp"]["ramming"]["max_frags_battle"])
-		StatsGoozombies.push(datapoints.data["account"]["statistics"]["pvp"]["torpedoes"]["max_frags_battle"])
+		StatsGoozombies.push(datapoints.data[account]["statistics"]["pvp"]["main_battery"]["max_frags_battle"])
+		StatsGoozombies.push(datapoints.data[account]["statistics"]["pvp"]["second_battery"]["max_frags_battle"])
+		StatsGoozombies.push(datapoints.data[account]["statistics"]["pvp"]["ramming"]["max_frags_battle"])
+		StatsGoozombies.push(datapoints.data[account]["statistics"]["pvp"]["torpedoes"]["max_frags_battle"])
 	}
 }
 
@@ -47,9 +47,9 @@ async function statsGoodNotBest(){
 	const response=await fetch(api_link)
 	const datapoints=await response.json();
 	for(let account in datapoints.data){
-		StatsGoodNotBest.push(datapoints.data["account"]["statistics"]["pvp"]["main_battery"]["max_frags_battle"])
-		StatsGoodNotBest.push(datapoints.data["account"]["statistics"]["pvp"]["second_battery"]["max_frags_battle"])
-		StatsGoodNotBest.push(datapoints.data["account"]["statistics"]["pvp"]["ramming"]["max_frags_battle"])
-		StatsGoodNotBest.push(datapoints.data["account"]["statistics"]["pvp"]["torpedoes"]["max_frags_battle"])
+		StatsGoodNotBest.push(datapoints.data[account]["statistics"]["pvp"]["main_battery"]["max_frags_battle"])
+		StatsGoodNotBest.push(datapoints.data[account]["statistics"]["pvp"]["second_battery"]["max_frags_battle"])
+		StatsGoodNotBest.push(datapoints.data[account]["statistics"]["pvp"]["ramming"]["max_frags_battle"])
+		StatsGoodNotBest.push(datapoints.data[account]["statistics"]["pvp"]["torpedoes"]["max_frags_battle"])
 	}
 }
