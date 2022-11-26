@@ -198,8 +198,8 @@
 		console.log(StatsGoozombies);
 		console.log(StatsGoodNotBest);
 		const CHART=document.getElementById('radarChart');
-		console.log(CHART.defaults.scale.ticks);
-		CHART.defaults.scale.ticks.beginAtZero=true; 
+		console.log(Chart.defaults.scale.ticks);
+		Chart.defaults.scale.ticks.beginAtZero=true; 
 		
 		let radarChart= new Chart(CHART, {
 		 type: 'radar',
