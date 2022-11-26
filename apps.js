@@ -18,6 +18,7 @@ async function SurvivedBattles(){
 			BattlesSurvived.push(datapoints.data[account]["pvp"][date]["survived_battles"])
 		}
 	}
+}
 
 async function WinLossRatio(){
 	const api_link='https://api.worldofwarships.com/wows/account/info/?application_id=40c89c194464b943f74c5d5044cc66ed&account_id=1008221991';
