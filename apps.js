@@ -32,5 +32,15 @@ async function statsGoozombies(){
 	const api_link='https://api.worldofwarships.com/wows/account/info/?application_id=40c89c194464b943f74c5d5044cc66ed&account_id=1008221991';
 	const response=await fetch(api_link)
 	const datapoints=await response.json();
+	for(let account in datapoints.data){
+	}
+}
+
+async function statsGoodNotBest(){
+	const api_link='https://api.worldofwarships.com/wows/account/info/?application_id=40c89c194464b943f74c5d5044cc66ed&account_id=1003075437';
+	const response=await fetch(api_link)
+	const datapoints=await response.json();
+	for(let account in datapoints.data){
+	}
 }
 }
