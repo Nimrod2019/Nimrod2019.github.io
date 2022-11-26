@@ -195,8 +195,8 @@
 	  async function displayChart4(){
 		await statsGoozombies();
 		await statsGoodNotBest();
-		console.log(StatsGoozombies)
-		console.log(StatsGoodNotBest)
+		console.log(StatsGoozombies);
+		console.log(StatsGoodNotBest);
 		const CHART=document.getElementByID('radarChart');
 		console.log(CHART.defaults.scale.ticks);
 		CHART.defaults.scale.ticks.beginAtZero=true; 
@@ -213,7 +213,7 @@
 				data: StatsGoozombies
 			}]
 		 }
-		}
+		})
 	}
 	
 	displayChart();
