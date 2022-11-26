@@ -196,7 +196,8 @@
 		await statsGoozombies();
 		await statsGoodNotBest();
 		const CHART=document.getElementById('radarChart');
-		
+		Chart.defaults.scale.ticks.beginAtZero=true;
+		  
 		let radarChart= new Chart(CHART, {
 		 type: 'radar',
 	         data: {
@@ -221,7 +222,7 @@
     				pointBorderColor: '#fff',
     				pointHoverBackgroundColor: '#fff',
     				pointHoverBorderColor: 'rgb(54, 162, 235)',
-				data: statsGoodNotBest
+				data: StatsGoodNotBest
 				}]
 		 }
 	});
