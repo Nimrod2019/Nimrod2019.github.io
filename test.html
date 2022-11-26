@@ -192,10 +192,41 @@
       config
     );
 	}
+	  async function displayChart4(){
+		await statsGoozombies();
+		await statsGoodNotBest();
+		const data = {
+			labels: ['Main Battery Kills', 'Secondary Battery Kills', 'Ramming Kills', 'Torpedo Kills'],
+			datasets: [{
+				label: 'Max kills by type in one battle',
+				data: [StatsGoozombies, StatsGoodNotBest],
+				backgroundColor: ["#a9e13e", "#520f0c"],
+				borderColor:'rgba(255, 26, 104, 1)',
+				borderWidth: 1
+			}]
+		};
+		// config 
+		const config = {
+  type: 'radar',
+  data: data,
+  options: {
+    elements: {
+      line: {
+        borderWidth: 3
+      }
+    }
+  }
+};
+	const myChart = new Chart(
+      document.getElementById('radarChart'),
+      config
+    );
+	}
 	
 	displayChart();
 	displayChart2();
 	displayChart3();
+	displayChart4();
     </script>
 
   </body>
