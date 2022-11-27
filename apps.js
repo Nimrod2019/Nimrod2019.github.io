@@ -9,7 +9,7 @@ async function PVPBattles(){
 }
 
 async function SurvivedBattles(){
-	const api_link='https://api.worldofwarships.com/wows/account/statsbydate/?application_id=40c89c194464b943f74c5d5044cc66ed&dates=20221010%2C+20221015%2C+20221020%2C+20221027&account_id=1008221991';
+	const api_link='https://api.worldofwarships.com/wows/account/statsbydate/?application_id=40c89c194464b943f74c5d5044cc66ed&account_id=1008221991&dates=20221115%2C+20221120%2C+20221123%2C+20221126';
 	const response=await fetch(api_link)
 	const datapoints=await response.json();
 	for (let account in datapoints.data){
