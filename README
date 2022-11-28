@@ -1,5 +1,8 @@
 This project helps visualize 4 aspects of the naval action game World of Warships.
+
 	1. Total number of PVP battles played by 4 players 
 	2. Timeline of battles to date (only last 30 days)
 	3. Win/loss ratio
-	4. Radar chart 
+	4. Radar chart exploring the different ways players can sink other ships as well as the max number of kills per type
+
+The context page provides an overview of the game including ship types and the weapons (guns, torpedoes, ramming) that can be utilized to gain victory.
