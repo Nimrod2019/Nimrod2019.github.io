@@ -1,0 +1,5 @@
+This project helps visualize 4 aspects of the naval action game World of Warships.
+	1. Total number of PVP battles played by 4 players 
+	2. Timeline of battles to date (only last 30 days)
+	3. Win/loss ratio
+	4. Radar chart 
